@@ -17,6 +17,38 @@
   overflow-x: hidden;
 }
 
+.login-container {
+
+}
+
+.login-header {
+
+}
+
+.login-text {
+
+}
+
+.login-underline {
+
+}
+
+.login-inputs {
+
+}
+
+.login-input {
+
+}
+
+.forgot-password {
+
+}
+
+.submit-container {
+
+}
+
 /* Header styling */
 .header {
   font-size: 2rem;
@@ -158,6 +190,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
+<<<<<<< HEAD
   }
 
   .rbc-header {
@@ -180,3 +213,27 @@
     padding: 0.5rem;
   }
 }
+=======
+  }
+
+  .rbc-header {
+    font-size: 1rem;
+  }
+
+  .rbc-month-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: none;
+    gap: 0.5rem;
+  }
+
+  .rbc-day-bg {
+    height: 120px; /* Adjusted for smaller screens */
+    border-bottom: none;
+  }
+
+  .app-container {
+    padding: 0.5rem;
+  }
+}
+>>>>>>> origin
