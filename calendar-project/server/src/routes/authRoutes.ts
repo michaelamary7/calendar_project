@@ -1,12 +1,9 @@
-import { Router, type Request, type Response } from 'express';
-import { User } from '../models/index.js';
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import { Router, Request, Response } from 'express';
+import * as bcrypt from 'bcrypt';
+import * as jwt from 'jsonwebtoken';
+import { User } from '../models/user.js'; // Adjust the path as necessary
 
-import dotenv from 'dotenv';
-dotenv.config();
-
-export const login = async (req: Request, res: Response) => {
+const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({
@@ -27,9 +24,7 @@ export const login = async (req: Request, res: Response) => {
   const token = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
 
   return res.json({ token });
-
 }
-
 const router = Router();
 
 router.post('/login', login);

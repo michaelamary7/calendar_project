@@ -1,21 +1,14 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import { config } from 'dotenv';
+config();
 
 import { Sequelize } from 'sequelize';
 
-const sequelize = process.env.DB_URL
-    ? new Sequelize(process.env.DB_URL)
-    : new Sequelize(
-            process.env.DB_NAME || '',
-            process.env.DB_USER || '',
-            process.env.DB_PASSWORD || '', // Add default value of empty string
-            {
-                host: 'localhost',
-                dialect: 'postgres',
-                dialectOptions: {
-                    decimalNumbers: true,
-                },
-            }
-        );
+// In your database config file
+const sequelize = new Sequelize('database', 'username', process.env.DB_PASSWORD, {
+        host: 'localhost',
+        dialect: 'postgres'
+    });
+    
+    // Make sure your .env file has:
 
 export default sequelize;

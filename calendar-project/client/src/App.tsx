@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import 'react-calendar/dist/Calendar.css';
+import './App.css';
+import EventCalendar from './components/eventcalendar';
+import LoginForm from './components/loginform';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Specify the type for the useState hook
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Check if there's a token in localStorage
+    const token = localStorage.getItem('authToken');
+    setIsLoggedIn(!!token); // Set isLoggedIn based on whether the token exists
+  }, []);
+
+  // Type the handleLogin function to expect a string parameter
+  const handleLogin = (token: string) => {
+    // Store token in localStorage and update isLoggedIn state
+    localStorage.setItem('authToken', token);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    // Clear token from localStorage and update isLoggedIn state
+    localStorage.removeItem('authToken');
+    setIsLoggedIn(false);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      <header>
+        <h1></h1>
+      </header>
+
+      <main>
+        {isLoggedIn ? (
+          <>
+            <EventCalendar /> {/* Calendar component */}
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <LoginForm onLogin={handleLogin} />
+        )}
+      </main>
+
+      <footer>
+        <p></p>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;

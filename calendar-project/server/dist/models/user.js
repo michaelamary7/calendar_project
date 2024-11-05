@@ -1,19 +1,24 @@
-import { Model, DataTypes, } from 'sequelize';
-export class User extends Model {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.User = void 0;
+exports.UserFactory = UserFactory;
+const sequelize_1 = require("sequelize");
+class User extends sequelize_1.Model {
 }
-export function UserFactory(sequelize) {
+exports.User = User;
+function UserFactory(sequelize) {
     User.init({
         user_id: {
-            type: DataTypes.INTEGER,
+            type: sequelize_1.DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
         name: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
             allowNull: false,
         },
         email: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
@@ -21,7 +26,7 @@ export function UserFactory(sequelize) {
             },
         },
         password: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
             allowNull: false,
             validate: {
                 notNull: {
@@ -30,7 +35,7 @@ export function UserFactory(sequelize) {
             },
         },
         role: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
             allowNull: false,
         },
     }, {

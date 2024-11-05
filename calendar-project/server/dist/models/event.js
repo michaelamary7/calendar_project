@@ -1,27 +1,32 @@
-import { DataTypes, Model } from 'sequelize';
-export class Event extends Model {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Event = void 0;
+exports.EventFactory = EventFactory;
+const sequelize_1 = require("sequelize");
+class Event extends sequelize_1.Model {
 }
-export function EventFactory(sequelize) {
+exports.Event = Event;
+function EventFactory(sequelize) {
     Event.init({
         event_id: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
             autoIncrement: true,
             primaryKey: true,
         },
         description: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
         },
         date: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
         },
         time: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
         },
         location: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
         },
         user_id: {
-            type: DataTypes.STRING,
+            type: sequelize_1.DataTypes.STRING,
         },
     }, {
         sequelize,

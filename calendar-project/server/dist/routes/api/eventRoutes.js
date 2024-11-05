@@ -1,19 +1,23 @@
-import { Router } from 'express';
-import { Event } from '../../models/index.js';
-export const getAllEvents = async (_req, res) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.eventRoutes = exports.createEvents = exports.createEvent = exports.getEventById = exports.getAllEvents = void 0;
+const express_1 = require("express");
+const index_js_1 = require("../../models/index.js");
+const getAllEvents = async (_req, res) => {
     try {
-        const users = await Event.findAll();
+        const users = await index_js_1.Event.findAll();
         res.json(users);
     }
     catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+exports.getAllEvents = getAllEvents;
 // GET /Events/:id
-export const getEventById = async (req, res) => {
+const getEventById = async (req, res) => {
     const { id } = req.params;
     try {
-        const event = await Event.findByPk(id);
+        const event = await index_js_1.Event.findByPk(id);
         if (event !== null && event !== undefined) {
             res.json(event);
         }
@@ -25,23 +29,25 @@ export const getEventById = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+exports.getEventById = getEventById;
 // POST /Events
-export const createEvent = async (req, res) => {
+const createEvent = async (req, res) => {
     const { event_id, description, date, time, location, user_id } = req.body;
     try {
-        const newEvent = await Event.create({ event_id, description, date, time, location, user_id });
+        const newEvent = await index_js_1.Event.create({ event_id, description, date, time, location, user_id });
         res.status(201).json(newEvent);
     }
     catch (error) {
         res.status(400).json({ message: error.message });
     }
 };
+exports.createEvent = createEvent;
 // POST /Event/Seed
-export const createEvents = async (_req, res) => {
+const createEvents = async (_req, res) => {
     try {
         // Multiple rows can be created with `bulkCreate()` and an array
         // This could also be moved to a separate Node.js script to ensure it only happens once
-        Event.bulkCreate([
+        index_js_1.Event.bulkCreate([
             {
                 event_id: 'Soccer Practice',
                 description: 'Practice for the big game',
@@ -97,13 +103,14 @@ export const createEvents = async (_req, res) => {
         res.status(400).json({ message: error.message });
     }
 };
-const router = Router();
+exports.createEvents = createEvents;
+const router = (0, express_1.Router)();
+exports.eventRoutes = router;
 // GET /events - Get all events
-router.get('/', getAllEvents);
+router.get('/', exports.getAllEvents);
 // GET a single event by ID
-router.get('/:id', getEventById);
+router.get('/:id', exports.getEventById);
 // POST /event - Create a new event
-router.post('/', createEvent);
+router.post('/', exports.createEvent);
 // POST /event/seed - Create multiple events
-router.post('/seed', createEvent);
-export { router as eventRoutes };
+router.post('/seed', exports.createEvent);
