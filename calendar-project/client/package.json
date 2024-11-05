@@ -9,6 +9,7 @@
         "preview": "vite preview"
     },
     "devDependencies": {
+        "@types/jsonwebtoken": "^9.0.7",
         "@types/moment": "^2.11.29",
         "@types/react-big-calendar": "^1.15.0",
         "@vitejs/plugin-react": "^4.3.3",
@@ -22,6 +23,9 @@
         "@types/react-calendar": "^3.9.0",
         "@types/react-dom": "^18.3.1",
         "@types/react-router-dom": "^5.3.3",
+        "bcryptjs": "^2.4.3",
+        "dotenv": "^16.4.5",
+        "jsonwebtoken": "^9.0.2",
         "react": "^18.3.1",
         "react-big-calendar": "^1.15.0",
         "react-calendar": "^5.1.0",

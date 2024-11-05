@@ -60,6 +60,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   };
 
   return (
+  <div className='app-container'>
     <div className='login-container'>
       <div className="login-header">
         <div className="login-text">{action}</div>
@@ -108,6 +109,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
         </div>
       </form>
     </div>
+  </div>
   );
 };
 
