@@ -1,0 +1,37 @@
+DROP DATABASE IF EXISTS calendar_db;
+CREATE DATABASE calendar_db;
+
+\calendar_db
+
+CREATE TABLE profile (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL, 
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE events (
+    event_id SERIAL PRIMARY KEY,
+    event_name VARCHAR(100) NOT NULL,
+    event_description TEXT,
+    event_location VARCHAR(100),
+    event_date TIMESTAMP WITH TIME ZONE NOT NULL,
+    event_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    user_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE holidays (
+    holiday_id SERIAL PRIMARY KEY,
+    holiday_name VARCHAR(100) NOT NULL,
+    holiday_date DATE NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE moon_phases (
+    phase_id SERIAL PRIMARY KEY,
+    phase_name VARCHAR(50) NOT NULL,
+    phase_date DATE NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
