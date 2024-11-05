@@ -1,50 +1,62 @@
-# React + TypeScript + Vite
+# Calendar-and-Moon-Phase-Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Table of Contents
+### Description 
+### Usage
+### Features
+### Installation
+### License
+### Contributors 
+### Questions
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+# Description
+This app is curated to each user allowing each person to login to their own personal calendar where you can find unique daily holidays and moon phases to enhance your user experience. You are able to save events into each day and have that save so the next time you login all your events are there waiting for you
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Usage
+Use this app to find out which holiday is coming up and what phase the moon will be at. Use to help schedule your busy life and remember important events. Our systenm will give you the major holidays and other holidays you might miss. It will aslo show you what the mooned looked like at that same time. Just click on a year, month, or day to find out which holiday and moon phase happened at that time! The perfect app to keep you up to date!
 
-- Configure the top-level `parserOptions` property like this:
+# Features
+-  Click through the years, months, or day.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-  Enter an event for the day you picked.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+-  Check what moon phase and holiday happpened on the day you picked.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+-  Navigate back and forth between past, present, and future.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# Installation
+
+Clone the Respository: In your CLI, type the following syntax: git clone git@github.com:Graceatkirk/Calendar-and-Moon-Phase-Application.git
+
+Install the required dependencies: Use the following syntax: npm install
+
+Start the applications: Type the following syntax: npm run dev
+
+# Contributions
+
+Grace Kirk
+
+Michaela Montague
+
+Christian Guzman
+
+# Questions
+For any questions, please contact us at:
+
+Email:
+
+cguzman199@gmail.com
+
+michaela713@me.com
+
+grace@kirk.org
+
+GitHub: 
+
+https://github.com/Chris-005
+
+https://github.com/Graceatkirk
+
+https://github.com/michaelamary7
